@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cloud Q</title>
+    <meta name="description" >
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+
+  </head>
+  Welcome to cloudQ
+  <body>
+    <main>
+      <form action="/login" method="GET" class="actions">
+       
+        <button type="submit" class="login">
+          Log in to Spotify
+        </button>
+        Song: <input type="text" id="search" value="Throwing%20Elbows">
+        <button onclick="search.js">Search</button>
+        <script src="search.js"></script>
+<!--         <button type="button" class="refresh" disabled>
+          Refresh Token
+        </button> -->
+       
+      </form>
+      
+        
+      </form>
+      
+      <div class="playlists"></div>
+    </main>
+   
+  
+  
+  </body>
+</html>
