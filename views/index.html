@@ -17,21 +17,47 @@
   <body>
     <main>
       <form action="/login" method="GET" class="actions">
-       
-        <button type="submit" class="login">
+      
+        <button type="submit" onclick="login()" class="login">
           Log in to Spotify
         </button>
-        Song: <input type="text" id="search" value="Throwing%20Elbows">
-        <button onclick="search.js">Search</button>
-        <script src="search.js"></script>
-<!--         <button type="button" class="refresh" disabled>
-          Refresh Token
-        </button> -->
+        Song: <input type="text" id="search" value="Welcome">
+        <button onclick="x()" id='butt'>click me</button>
+        <script>
+          function login(){
+            const loginButton = document.querySelector('.login');
+          }
+        </script>
+        <script>
+
+          document.getElementById("butt").onclick = function() {myFunction()};
+        function myFunction(){
+          const searchParams = new URLSearchParams(window.location.search)
+      
+          const access_token = searchParams.get('access_token');
+          if(access_token){
+            
+            query = ''
+            var x = document.getElementById("search").value;
+            console.log(x)
+            fetch(`/search?q=${x}&type=track&access_token=${access_token}`)
+            .then(res => res.json())
+            .then(({tracks : {items}})=>{
+            query = items[0].id
+            fetch(`/queue?uri=spotify:track:${query}&access_token=${access_token}`,{method:'post'}).then(res =>{
+                  console.log("yes")
+            })
+          })
+            console.log(query)
+        }
+          }
+         
+        </script>
        
       </form>
       
         
-      </form>
+    
       
       <div class="playlists"></div>
     </main>
